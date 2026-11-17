@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import {
   ArrowRight,
@@ -18,7 +17,7 @@ import { site } from "../lib/data";
 
 /* ------------------------------ Config ------------------------------ */
 
-const PROFILE_IMAGE = "/profile.png"; // replace /public/profile.png with your own photo
+
 
 // Google Drive CV (file must be shared as "Anyone with the link")
 const RESUME_URL = site.resume;
@@ -179,14 +178,15 @@ function ProfileVisual({ reduceMotion }) {
         </motion.div>
 
         <div className="absolute inset-[13%] overflow-hidden rounded-full border border-emerald-500/25 bg-surface shadow-2xl shadow-emerald-500/10">
-          <Image
-            src={PROFILE_IMAGE}
-            alt={`${site.name}, Software Engineer`}
-            fill
-            priority
-            sizes="(max-width: 640px) 260px, 340px"
-            className="object-cover object-center"
-          />
+        <div
+            role="img"
+            aria-label={`${site.name}, Software Engineer`}
+            className="absolute inset-0 grid place-items-center bg-gradient-to-br from-emerald-500/20 via-surface to-emerald-500/5"
+          >
+            <span className="select-none bg-gradient-to-br from-emerald-400 to-emerald-600 bg-clip-text text-6xl font-extrabold tracking-tight text-transparent sm:text-7xl">
+              UMK
+            </span>
+          </div>
           <div aria-hidden="true" className="pointer-events-none absolute inset-0 rounded-full ring-1 ring-inset ring-white/10" />
         </div>
 
